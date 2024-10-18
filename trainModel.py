@@ -41,30 +41,35 @@ lgClassifier = LogisticRegression()
 lgClassifier.fit(X_train_tfidf, y_train)
 y_pred1 = lgClassifier.predict(X_test_tfidf)
 score1 = accuracy_score(y_test, y_pred1)
+cm1 = confusion_matrix(y_test, y_pred1)
 # accuracy = 0.9769230769230769
 
 nbClassifier = GaussianNB()
 nbClassifier.fit(X_train_tfidf.toarray(), y_train.to_numpy())
 y_pred2 = nbClassifier.predict(X_test_tfidf.toarray())
 score2 = accuracy_score(y_test, y_pred2)
+cm2 = confusion_matrix(y_test, y_pred2)
 # accuracy = 0.9461538461538461
 
 rfClassifier = RandomForestClassifier()
 rfClassifier.fit(X_train_tfidf, y_train)
 y_pred3 = rfClassifier.predict(X_test_tfidf)
 score3 = accuracy_score(y_test, y_pred3)
+cm3 = confusion_matrix(y_test, y_pred3)
 # accuracy = 0.9807692307692307
 
 knn = KNeighborsClassifier(n_neighbors = 5)
 knn.fit(X_train_tfidf, y_train)
 y_pred4 = knn.predict(X_test_tfidf)
 score4 = accuracy_score(y_test, y_pred4)
+cm4 = confusion_matrix(y_test, y_pred4)
 # accuracy = 0.9730769230769231
 
 svc = SVC(kernel='linear')
 svc.fit(X_train_tfidf, y_train)
 y_pred5 = svc.predict(X_test_tfidf)
 score5 = accuracy_score(y_test, y_pred5)
+cm5 = confusion_matrix(y_test, y_pred5)
 # accuracy = 0.9846153846153847
 
 
