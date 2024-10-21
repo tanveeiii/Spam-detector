@@ -3,13 +3,16 @@ import trainModel
 
 app = Flask(__name__)
 
+svc, tfidf_vectorizer = trainModel.train_data()
+
 @app.route('/', methods=["GET", "POST"])
 def home():
     if(request.method=="GET"):
       return render_template("home.html")
     elif(request.method=="POST"):
        email_content = request.form.get('email')
-       result = trainModel.training(email_content)
+       print(tfidf_vectorizer)
+       result = trainModel.training(email_content, svc, tfidf_vectorizer)
        return result
 
 

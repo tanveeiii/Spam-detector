@@ -25,7 +25,7 @@ def load_data(data_path):
 
     return pd.DataFrame(data, columns=['text', 'label'])
 
-def training(email):
+def train_data():
     training_data = load_data('train-mails')
     test_data = load_data('test-mails')
 
@@ -72,6 +72,10 @@ def training(email):
     score5 = accuracy_score(y_test, y_pred5)
     cm5 = confusion_matrix(y_test, y_pred5)
     # accuracy = 0.9846153846153847
+
+    return svc, tfidf_vectorizer
+
+def training(email, svc, tfidf_vectorizer):
     email_converted = tfidf_vectorizer.transform([email])
     result = svc.predict(email_converted)
     if(result[0]==1):
