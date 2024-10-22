@@ -24,8 +24,7 @@ def feedback():
       email = request.form.get("email")
       result = request.form.get("result_type")
       unique_id = str(uuid.uuid4())
-      print(result)
-      print(email)
+      email = trainModel.preprocess_email_content(email)
       if(result=="spam"):
         if(feedback=="like"):
           with open(f"train-mails/spmsga{unique_id}.txt", "w", encoding="utf-8") as file:

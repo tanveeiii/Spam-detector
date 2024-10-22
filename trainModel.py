@@ -8,6 +8,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+nltk.download('punkt_tab')
+nltk.download('stopwords')
 
 def load_data(data_path):
     data =[]
@@ -82,3 +89,39 @@ def training(email, svc, tfidf_vectorizer):
         return "spam"
     else:
         return "ham"
+    
+
+def preprocess_email_content(email_content):
+
+    sentences = sent_tokenize(email_content)
+
+    processed_sentences = []
+    for sentence in sentences:
+        words = word_tokenize(sentence)
+        processed_sentences.append(words)
+
+    stop_words = set(stopwords.words('english'))
+    stemmer = PorterStemmer()
+
+    stemmed_sentences = []
+    for sentence in processed_sentences:
+        sentence = [word.lower() for word in sentence if word.isalpha()]
+        sentence = [word for word in sentence if word not in stop_words]
+        stemmed_sentence = [stemmer.stem(word) for word in sentence]
+        
+        stemmed_sentences.append(' '.join(stemmed_sentence))
+    
+    return ' , '.join(stemmed_sentences)
+
+
+email = """
+Dear User,
+
+Thank you for using our service. Please let us know if you have any questions or concerns.
+
+Best regards,
+Customer Support
+"""
+
+processed_email = preprocess_email_content(email)
+print("Processed Email:", processed_email)
