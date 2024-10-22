@@ -112,16 +112,3 @@ def preprocess_email_content(email_content):
         stemmed_sentences.append(' '.join(stemmed_sentence))
     
     return ' , '.join(stemmed_sentences)
-
-
-email = """
-Dear User,
-
-Thank you for using our service. Please let us know if you have any questions or concerns.
-
-Best regards,
-Customer Support
-"""
-
-processed_email = preprocess_email_content(email)
-print("Processed Email:", processed_email)
