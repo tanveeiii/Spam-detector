@@ -8,19 +8,23 @@
 </head>
 <body>
     <div class="result">
-        <div class="{{email_type}}">The email is a {{email_type}} email!!!</div>
-        <a href="{{url_for('home')}}"><button>Go Back</button></a>
+        <div class="{{email_type}} type">The email is a {{email_type}} email!!!</div>
+        <a class="back" href="{{url_for('home')}}"><button>Go Back</button></a>
     </div>
-    <div>
-        <div>Was the result correct?</div>
+    
+    <div class="feedback">
+        
+        {%if message%}
+        <div class="message">{{message}}</div>
+        {%else%}
+        <div class="feedback-message">Please share your feedback and help us improve our website</div>
+        <div class="feedback-question">Was the result correct?</div>
         <form action="{{url_for('feedback')}}" method="POST">
             <input type="hidden" name="email" value="{{email}}">
             <input type="hidden" name="result_type" value="{{email_type}}">
-            <button type="submit" name="feedback" value="like">👍 Like</button>
-            <button type="submit" name="feedback" value="dislike">👎 Dislike</button>
+            <button class="like" type="submit" name="feedback" value="like">👍 Like</button>
+            <button class="dislike" type="submit" name="feedback" value="dislike">👎 Dislike</button>
         </form>
-        {%if message%}
-        <div>{{message}}</div>
         {%endif%}
     </div>
 </body>

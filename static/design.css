@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 *{
     margin: 0;
@@ -24,9 +26,9 @@ body{
 
 .heading{
   margin: 15px;
-  font-size: xx-large;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  font-family: "Kanit", sans-serif;
 }
 
 .input{
@@ -37,10 +39,31 @@ body{
 }
 
 #email{
-  
+  margin: 20px;
+  width: 40vw;
+  height: 50vh;
+  padding: 5px;
+  border: 3px solid black;
 }
 
 form{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit{
+  width: 90px;
+  height: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(134, 234, 134);
+  border-radius: 10px;
+}
+
+.submit:hover{
+  background-color: rgb(29, 218, 29);
 }
