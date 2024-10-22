@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.result{
+    width: 99.5vw;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.spam{
+    color: red;
+    font-weight: bold;
+}
+
+.ham{
+    color: green;
+    font-weight: bold;
+}

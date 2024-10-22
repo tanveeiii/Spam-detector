@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/result.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="result">
+        <div class="{{email_type}}">The email is a {{email_type}} email!!!</div>
+        <a href="{{url_for('home')}}"><button>Go Back</button></a>
+    </div>
+    <div>
+        <div>Was the result correct?</div>
+        <form action="{{url_for('feedback')}}" method="POST">
+            <input type="hidden" name="email" value="{{email}}">
+            <input type="hidden" name="result_type" value="{{email_type}}">
+            <button type="submit" name="feedback" value="like">👍 Like</button>
+            <button type="submit" name="feedback" value="dislike">👎 Dislike</button>
+        </form>
+        {%if message%}
+        <div>{{message}}</div>
+        {%endif%}
+    </div>
+</body>
+</html>
